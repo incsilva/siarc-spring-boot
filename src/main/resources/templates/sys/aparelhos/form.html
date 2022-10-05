@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editar Aparelhos - SIARC: Sistema de Automação de Ar Condicionados</title>
+
+<!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
+        </th:block> /*/-->
+</head>
+<body>
+	<header th:insert="fragments/geral.html :: header"> </header>
+
+	<div class="container my-2">
+		<h2>Editar Aparelho</h2>
+		<form action="#" th:action="@{/sys/aparelhos/salvar}" th:object="${aparelho}" method="POST">
+			<input type="hidden" id="id" th:field="*{id}">
+			
+			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
+			<input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
+      		<input type="text" th:field="*{enderecoip}" placeholder="Endereço IP" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{enderecomac}" placeholder="Endereço Mac" class="form-control mb-4 col-4">
+      		<input type="text" th:field="*{local}" placeholder="Local" class="form-control mb-4 col-4">
+      		<input type="text" th:field="*{codigoirligar}" placeholder="Código IR Ligar" class="form-control mb-4 col-4">
+      		<input type="text" th:field="*{codigoirdesligar}" placeholder="Código IR Desligar" class="form-control mb-4 col-4">
+				
+			<button type="submit" class="btn btn-info col-2">Salvar</button>
+		</form>
+		<hr>
+		<a th:href="@{/sys/aparelhos}">Retornar para a lista de Ar Condicionados</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usuários - SIARC: Sistema de Automação de Ar Condicionados</title>
+
+<!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
+        </th:block> /*/-->
+
+</head>
+<body>
+	<header th:insert="fragments/geral.html :: header"> </header>
+
+	<div class="container my-2">
+		<a th:href="@{/adm/usuarios/novo}" class="btn btn-primary btn-sm mb-3">Incluir Usuário</a>
+		<h1>Usuários</h1>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Matricula</th>
+					<th>Status</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario : ${listaUsuarios}">
+					<td th:text="${usuario.username}"></td>
+					<td th:text="${usuario.email}"></td>
+					<td th:text="${usuario.matricula}"></td>
+					<td th:text="${usuario.role}"></td>
+					<td>
+						<a th:href="@{/adm/usuarios/alterar/role/{id}(id=${usuario.id})}" class="btn btn-primary"><img alt="Editar" src="https://img.icons8.com/ios/50/000000/wrench--v1.png"/></a>
+						<a th:href="@{/adm/usuarios/excluir/{id}(id=${usuario.id})}" class="btn btn-danger"><img alt="Excluir" src="https://img.icons8.com/material-outlined/24/000000/trash--v1.png"/></a>			
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
