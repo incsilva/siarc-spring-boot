@@ -17,16 +17,16 @@
 			<input type="hidden" id="id" th:field="*{id}">
 			
 			<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></span>
-			<input type="text" th:field="*{username}" placeholder="Nome" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{username}" placeholder="Nome" class="form-control mb-4 col-4" required>
 			
 			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
-			<input type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required>
 			
 			<span th:if="${#fields.hasErrors('matricula')}" th:errors="*{matricula}" class="text-danger"></span>
-			<input type="text" th:field="*{matricula}" placeholder="Matrícula" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{matricula}" placeholder="Matrícula IFRN" class="form-control mb-4 col-4" required>
       		
       		<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></span>
-			<input type="password" th:field="*{password}" placeholder="Senha" class="form-control mb-4 col-4">
+			<input type="password" th:field="*{password}" placeholder="Senha" class="form-control mb-4 col-4" required>
       		
       		<select class="form-control mb-4 col-4" th:field="*{role}" >
 			    <option th:each="r : ${roles}" th:value="${r}" th:text="${r}"></option>
@@ -37,5 +37,6 @@
 		<hr>
 		<a th:href="@{/adm/usuarios}">Retornar para a lista de usuários</a>
 	</div>
+	<footer th:insert="fragments/geral.html :: footer"> </footer>
 </body>
 </html>
