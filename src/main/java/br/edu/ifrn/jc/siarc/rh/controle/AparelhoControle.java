@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -17,8 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.ifrn.jc.siarc.rh.dominio.Aparelho;
 import br.edu.ifrn.jc.siarc.rh.dominio.AparelhoRepositorio;
@@ -41,51 +38,12 @@ public class AparelhoControle {
 		return "sys/aparelhos/index";
 	}
 
-	/*@SuppressWarnings("unchecked")
-
 	@GetMapping("/sys/aparelhos/ativos")
-	public String aparelhosAtivos(@RequestParam(name = "nome", required = false) String nome,
-
-			@RequestParam(name = "mostrarTodosDados", required = false) Boolean mostrarTodosDados, HttpSession sessao,
-			Model model) {
-		List<Aparelho> aparelhosCadastrados = (List<Aparelho>) sessao.getAttribute("aparelhosCadastrados");
-		List<Aparelho> aparelhosEncontrados = new ArrayList<>();
-
-		if (nome == null || nome.isEmpty()) {
-			aparelhosEncontrados = aparelhosCadastrados;
-		} else {
-			if (aparelhosCadastrados != null) {
-				aparelhosEncontrados = aparelhosCadastrados.stream()
-						.filter(aparelho -> aparelho.getNome().toLowerCase().contains(nome.toLowerCase()))
-						.collect(Collectors.toList());
-			}
-		}
-		model.addAttribute("aparelhosEncontrados", aparelhosEncontrados);
-
-		if (mostrarTodosDados != null) {
-			model.addAttribute("mostarTodosDados", true);
-		}
-		return "sys/aparelhos/ativo";
-	}*/
-
-	@GetMapping("/sys/aparelhos/ativos")
-	public String aparelhosLigados(@PathVariable(value = "nome") String nome, ModelMap model) {
-		List<Aparelho> ligados = (List<Aparelho>) aparelhoRepo.findAllAtivos(nome);
-		List<Aparelho> atv = new ArrayList<>();
-		if (ligados != null) {
-			atv = ligados.stream().filter(aparelho -> aparelho.getNome().toLowerCase().contains(nome.toLowerCase()))
-					.collect(Collectors.toList());
-		}
-		model.addAttribute("ligados", atv);
+	public String aparelhosLigados(Model model) {
+		List<Aparelho> ligados = (List<Aparelho>) aparelhoRepo.findAllAtivos();
+	    model.addAttribute("ligados", ligados);
 		return "sys/aparelhos/ativo";
 	}
-
-	/*@PostMapping("sys/aparelhos/ativos")
-	public String aparelhosLigados(@RequestParam("nome") String nome, ModelMap model) {
-		List<Aparelho> ligados = aparelhoRepo.findAllAtivos(nome);
-		model.addAllAttributes(ligados);
-		return "sys/aparelhos/ativo";
-	}*/
 
 	@GetMapping("/sys/aparelhos/novo")
 	public String novoAparelho(@Valid @ModelAttribute("aparelho") Aparelho aparelho, BindingResult bindingResult,

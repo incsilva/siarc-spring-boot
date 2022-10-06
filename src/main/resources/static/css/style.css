@@ -104,10 +104,20 @@ footer{
     .footer-col{
         width: 50%;
         margin-bottom: 30px;
+        text-align: center;
     }
 }
 @media (max-width:600px) {
     .footer-col{
         width: 100%;
+         text-align: center;
     }
+}
+
+#btnSalvar {
+	background-color: #007bff;
+}
+
+#btnSalvar:hover {
+	background-color: #415aca;
 }

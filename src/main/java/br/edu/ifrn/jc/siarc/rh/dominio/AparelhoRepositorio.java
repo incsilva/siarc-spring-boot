@@ -12,6 +12,9 @@ public interface AparelhoRepositorio extends JpaRepository<Aparelho, Long> {
 	Aparelho findByNome(String nome);
 
 	@Query(value = "select a from Aparelho a where a.nome like %?1%")
-	List<Aparelho> findAllAtivos(String nome);
+	List<Aparelho> findAllByName(String nome);
+	
+	@Query("SELECT a FROM Aparelho a WHERE a.status = 'ATIVO'")
+	List<Aparelho> findAllAtivos();
 
 }

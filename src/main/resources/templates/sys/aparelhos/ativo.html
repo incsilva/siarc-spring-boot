@@ -14,7 +14,6 @@
 <body>
 	<header th:insert="fragments/geral.html :: header"> </header>
 	
-	<h1>Oi</h1>
 	<form th:action="@{/sys/aparelhos/ativos}" method="post">
 				<table>
 					<tr>
@@ -48,7 +47,7 @@
 						<tr th:each="aparelho : ${ligados}">
 							<td th:text="${aparelho.nome}"></td>
 							<td th:text="${aparelho.enderecoip}"></td>
-							<td th:text="${aparelho.endrecomac}"></td>
+							<td th:text="${aparelho.enderecomac}"></td>
 							<td th:text="${aparelho.local}"></td>
 							<td th:text="${aparelho.status}"></td>
 							<td th:text="${aparelho.codigoirligar}"></td>

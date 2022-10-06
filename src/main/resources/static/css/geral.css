@@ -1,1 +1,18 @@
-   
+/*#header {
+	position: fixed;
+	width: 100%;
+}*/
+.sair {
+	margin-left: 10px;
+	color: #ffffff;
+	border-color: #ef5350;
+	border-radius: 5px;
+	padding: 3px 15px 3px 15px;
+	background-color: #dc3545;
+}
+
+.sair:hover {
+	border-color: #981b27;
+	background-color: #981b27;
+}
+

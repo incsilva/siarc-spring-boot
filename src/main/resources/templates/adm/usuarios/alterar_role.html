@@ -23,7 +23,7 @@
 			    <option th:each="r : ${roles}" th:value="${r}" th:text="${r}"></option>
 			</select>
 			
-			<button type="submit" class="btn btn-info col-2">Alterar</button>
+			<button type="submit" class="btn btn-info col-2" id="btnSalvar">Alterar</button>
 		</form>
 		<hr>
 		<a th:href="@{/adm/usuarios}">Retornar para a lista de usuários</a>
