@@ -11,13 +11,15 @@
         </th:block> /*/-->
 
 </head>
-<body>
+<body style="background-color: #F2F2F2">
 	<header th:insert="fragments/geral.html :: header"> </header>
 
 	<div class="container my-2">
 		<a sec:authorize="hasAuthority('ADMIN')"
 			th:href="@{/sys/aparelhos/novo}" class="btn btn-primary btn-sm mb-3">Adicionar
 			novo</a>
+			<a sec:authorize="hasAuthority('ADMIN')"
+			th:href="@{/sys/aparelhos/busca}" class="btn btn-primary btn-sm mb-3">Pesquisar</a>
 		<h1>Ar Condicionados</h1>
 		<table border="1" class="table table-striped table-responsive-md">
 			<thead>
@@ -26,7 +28,6 @@
 					<th>Endereço IP</th>
 					<th>Endereço MAC</th>
 					<th>Local</th>
-					<th>Status</th>
 					<th>Código IR Ligar</th>
 					<th>Código IR Desligar</th>
 					<th>Ações</th>
@@ -38,7 +39,6 @@
 					<td th:text="${aparelho.enderecoip}"></td>
 					<td th:text="${aparelho.enderecomac}"></td>
 					<td th:text="${aparelho.local}"></td>
-					<td th:text="${aparelho.status}"></td>
 					<td th:text="${aparelho.codigoirligar}"></td>
 					<td th:text="${aparelho.codigoirdesligar}"></td>
 					<td>

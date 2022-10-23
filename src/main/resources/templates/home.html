@@ -8,11 +8,12 @@
 <!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
         </th:block> /*/-->
 </head>
-<body>
-
+<body style="background-color: #f2f2f2">
 	<header th:insert="fragments/geral.html :: header"> </header>
 	<div class="container my-2">
-		<h2>Seja Bem vindo!</h2>
+		<h2>
+			Seja Bem vindo<label>, <span sec:authentication="name">Usuário</span></label>!
+		</h2>
 		<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 			<div class="col">
 				<div class="card mb-4 shadow-sm">
@@ -25,7 +26,7 @@
 							<li>Desligar</li>
 						</ul>
 						<a class="w-100 btn btn-lg btn-primary"
-							th:href="@{/sys/aparelhos}">Acessar</a>
+							th:href="@{/sys/aparelhos/ativos}">Acessar</a>
 					</div>
 				</div>
 			</div>
@@ -42,7 +43,7 @@
 								<li>Remover aparelhos</li>
 							</ul>
 							<a class="w-100 btn btn-lg btn-primary"
-								th:href="@{/sys/aparelhos/ativos}">Acessar</a>
+								th:href="@{/sys/aparelhos}">Acessar</a>
 						</div>
 					</div>
 				</div>
@@ -64,39 +65,42 @@
 					</div>
 				</div>
 			</div>
-			<!-- <div class="container my-2">
-		<a sec:authorize="hasAuthority('ADMIN')"
-			th:href="@{/sys/aparelhos/ativos}" class="btn btn-primary btn-sm mb-3">Adicionar
-			novo</a>
-		<h1>Ar Condicionados</h1>
-		<table border="1" class="table table-striped table-responsive-md">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Endereço IP</th>
-					<th>Endereço MAC</th>
-					<th>Local</th>
-					<th>Código IR Ligar</th>
-					<th>Código IR Desligar</th>
-					<th>Ações</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="aparelho : ${listaAparelhosAtivo}">
-					<td th:text="${aparelho.nome}"></td>
-					<td th:text="${aparelho.enderecoip}"></td>
-					<td th:text="${aparelho.enderecomac}"></td>
-					<td th:text="${aparelho.local}"></td>
-					<td th:text="${aparelho.codigoirligar}"></td>
-					<td th:text="${aparelho.codigoirdesligar}"></td>
-					<td>
-						<a th:href="@{/sys/aparelhos/{id}(id=${aparelho.id})}" class="btn btn-primary"><img alt="Editar" src="https://img.icons8.com/ios/50/000000/wrench--v1.png"/></a> 
-						<a th:href="@{/sys/aparelhos/excluir/{id}(id=${aparelho.id})}" class="btn btn-danger"><img alt="Excluir" src="https://img.icons8.com/material-outlined/24/000000/trash--v1.png"/></a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>-->
+			<section class="featured section-padding"
+				style="width: 100%; border-radius: 10px; background-color: #14B789">
+				<div class="container">
+					<div class="profile-thumb">
+						<div class="profile-title">
+							<h4 class="mb-0">Information</h4>
+						</div>
+
+						<div class="profile-body">
+							<p>
+								<span class="profile-small-title">Naghme</span> <span>Joshua
+									Morgan</span>
+							</p>
+
+							<p>
+								<span class="profile-small-title">Birthday</span> <span>Aug
+									12, 1986</span>
+							</p>
+							<p>
+								<span class="profile-small-title">Birthday</span> <span>Aug
+									12, 1986</span>
+							</p>
+
+							<p>
+								<span class="profile-small-title">Phone</span> <span><a
+									href="tel: 305-240-9671">120-240-9600</a></span>
+							</p>
+
+							<p>
+								<span class="profile-small-title">Email</span> <span><a
+									href="mailto:hello@josh.design">hello@josh.design</a></span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 	</div>
 	<footer th:insert="fragments/geral.html :: footer"> </footer>

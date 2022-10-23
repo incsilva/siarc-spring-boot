@@ -19,10 +19,17 @@
 			
 			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
 			<input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4" required>
+			
+      		<span th:if="${#fields.hasErrors('enderecoip')}" th:errors="*{enderecoip}" class="text-danger"></span>
       		<input type="text" th:field="*{enderecoip}" placeholder="Endereço IP" class="form-control mb-4 col-4" required>
+			
+			<span th:if="${#fields.hasErrors('enderecomac')}" th:errors="*{enderecomac}" class="text-danger"></span>
 			<input type="text" th:field="*{enderecomac}" placeholder="Endereço Mac" class="form-control mb-4 col-4" required>
+      		
       		<input type="text" th:field="*{local}" placeholder="Local" class="form-control mb-4 col-4" required>
+      		
       		<input type="text" th:field="*{codigoirligar}" placeholder="Código IR Ligar" class="form-control mb-4 col-4" required>
+      		
       		<input type="text" th:field="*{codigoirdesligar}" placeholder="Código IR Desligar" class="form-control mb-4 col-4" required>
 				
 			<button type="submit" class="btn btn-info col-2" id="btnSalvar">Salvar</button>

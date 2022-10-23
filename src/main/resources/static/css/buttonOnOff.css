@@ -50,3 +50,29 @@ label {
 .liga-desliga__checkbox:focus+.liga-desliga__botao::before {
 	outline: 3px dotted #CCC;
 }
+
+#ligar {
+	margin-left: 10px;
+	color: #ffffff;
+	border-color: #55D069;
+	border-radius: 5px;
+	padding: 3px 28px 3px 28px;
+	background-color: #0ab526;
+}
+#ligar:hover {
+	border-color: #08921f;
+	background-color: #08921f;
+}
+
+#desligar {
+	margin-left: 10px;
+	color: #ffffff;
+	border-color: hwb(1 2% 9%);
+	border-radius: 5px;
+	padding: 3px 15px 3px 15px;
+	background-color: #f10119;
+}
+#desligar:hover {
+	border-color: #981b27;
+	background-color: #c7091c;
+}

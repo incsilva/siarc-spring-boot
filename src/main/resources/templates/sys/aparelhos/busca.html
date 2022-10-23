@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link th:href="@{/css/buttonOnOff.css}" rel="stylesheet" />
+<title>Ar Condicionados - SIARC: Sistema de Automação de Ar
+	Condicionados</title>
+
+<!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
+        </th:block> /*/-->
+
+</head>
+<body>
+	<header th:insert="fragments/geral.html :: header"> </header>
+	<div class="container mt-5">
+<h2 align="center">Search in Thymeleaf Template</h2>
+  <form th:action="@{/sys/aparelhos/buscar}" method="get">
+  <input type="text" name="nome" th:value="${nome}"  placeholder="Find by Owner Name & Shop Type" size="50" >
+  <button type="submit" class="btn btn-info" >Search</button>
+  <button type="submit" class="btn btn-info" >Reset</button>
+  </form>
+  <table class="table table-bordered table-sm mt-2">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Local</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="aparelho : ${encontrados}">
+        <td th:text="${aparelho.nome}"></td>
+        <td th:text="${aparelho.local}"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+			<footer th:insert="fragments/geral.html :: footer"> </footer>
+</body>
+</html>

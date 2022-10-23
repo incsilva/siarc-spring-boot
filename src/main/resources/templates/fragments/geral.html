@@ -4,74 +4,93 @@
 <head th:fragment="headerfiles">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--  Styles -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
 	crossorigin="anonymous">
-
-
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link th:href="@{/css/geral.css}" rel="stylesheet" />
-<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet" th:href="@{/css/geral.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"
-	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-	crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-	integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-	crossorigin="anonymous"></script>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/magnific-popup.css}" rel="stylesheet">
+<link th:href="@{/css/first.css}" rel="stylesheet">
+<!-- Scripts -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.sticky.js}"></script>
+<script th:src="@{/js/click-scroll.js}"></script>
+<script th:src="@{/js/custom.js}"></script>
 </head>
 <body>
-	<div th:fragment="header" id="header">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light"
-			role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="btn-outline-primary" href="/">Sistema de automação de
-						ar condicionados</a>
-				</div>
 
-				<div sec:authorize="isAuthenticated()">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="nav-item">
-							<form name="logoutForm" th:action="@{/logout}" method="post">
-								<label id="usuario"><svg
-										xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-										fill="currentColor" class="bi bi-person-circle"
-										viewBox="0 0 16 16">
-  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-  <path fill-rule="evenodd"
-											d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-</svg> <span sec:authentication="name">Usuário</span></label>
-								<button class="sair">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-										fill="currentColor" class="bi bi-box-arrow-right"
-										viewBox="0 0 16 16">
-  <path fill-rule="evenodd"
-											d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-  <path fill-rule="evenodd"
-											d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-</svg>
-									Sair
-								</button>
-							</form>
-						</li>
+<!-- Start header ########################################################################################## -->
+	<div th:fragment="header" id="header">
+		<section class="preloader">
+			<div class="spinner">
+				<span class="spinner-rotate"></span>
+			</div>
+		</section>
+
+		<nav class="navbar navbar-expand-lg" role="navigation">
+			<div class="container">
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<a class="navbar-brand mx-auto mx-lg-0" href="/">SIARC</a>
+
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-lg-6">
+						<li class="nav-item"><a class="nav-link click-scroll"
+							href="#section_1">Início</a></li>
+
+						<li class="nav-item"><a class="nav-link click-scroll"
+							th:href="@{/sys/aparelhos}">Aparelhos</a></li>
+
+						<li class="nav-item"><a class="nav-link click-scroll"
+							href="#section_3">Usuários</a></li>
+
+						<li class="nav-item"><a class="nav-link click-scroll"
+							href="#section_4">Buscar aparelhos</a></li>
+
+						<li class="nav-item"><a class="nav-link click-scroll"
+							href="#section_5">Agendamento</a></li>
 					</ul>
+
+					<div sec:authorize="isAuthenticated()"
+						class="d-lg-flex align-items-center d-none ms-auto">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="nav-item">
+								<form name="logoutForm" th:action="@{/logout}" method="post">
+									
+									<button class="custom-btn btn">Sair</button>
+								</form>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</nav>
-		<div class="container my-2">
-			<h1>Siarc</h1>
+		<div id="backHeader">
+			<br>
+			<br>
+			<br>
 			<hr>
 		</div>
 	</div>
+<!-- End header #################################################################################################### -->
 	<!-- Rodape -->
 	<div th:fragment="footer">
 		<footer>
@@ -79,48 +98,56 @@
 				<div class="row-footer">
 					<!-- footer col-->
 					<div class="footer-col">
-						<h4>Empresa</h4>
+						<h7>SIARC</h7>
+					</div>
+					<div class="footer-col">
+						<h7>Sobre o sistema</h7>
 						<ul>
-							<li><a href="#"> Quem somos </a></li>
-							<li><a href=""> nossos serviços </a></li>
-							<li><a href=""> política de privacidade </a></li>
-							<li><a href=""> programa de afiliados</a></li>
+							<li>Sistema de Automação de Ar Condicionados</li>
+							<li id="description">Software desenvolvido por alunos do 4º
+								ano da turma de Informática 2019.1 do IFRN Campus João Câmara</li>
+						</ul>
+					</div>
+					<!--end footer col-->
+					<!-- footer col-->
+					<!--end footer col-->
+					<!-- footer col-->
+					<div class="footer-col">
+						<h4>Links úteis</h4>
+						<ul>
+							<li><a href="https://suap.ifrn.edu.br"><svg
+										xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+										fill="currentColor" class="bi bi-link-45deg"
+										viewBox="0 0 16 16">
+								<path
+											d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+								<path
+											d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
+							  </svg> Portal SUAP</a></li>
+							<li><a href="https://portal.ifrn.edu.br"><svg
+										xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+										fill="currentColor" class="bi bi-link-45deg"
+										viewBox="0 0 16 16">
+								<path
+											d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+								<path
+											d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
+							  </svg> Portal IFRN</a></li>
+							<li><a
+								href="https://suap.ifrn.edu.br/centralservicos/selecionar_servico_abertura/manutencao-predial/?tab=refrigeracao"><svg
+										xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+										fill="currentColor" class="bi bi-link-45deg"
+										viewBox="0 0 16 16">
+								<path
+											d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+								<path
+											d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
+							  </svg> Contate que um aparelho está com mau funcionamento</a></li>
 						</ul>
 					</div>
 					<!--end footer col-->
 					<!-- footer col-->
 					<div class="footer-col">
-						<h4>Obter ajuda</h4>
-						<ul>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">Transporte</a></li>
-							<li><a href="#">devoluções</a></li>
-							<li><a href="#">Status De Pedido</a></li>
-							<li><a href="#">Opções De Pagamento</a></li>
-						</ul>
-					</div>
-					<!--end footer col-->
-					<!-- footer col-->
-					<div class="footer-col">
-						<h4>Loja online</h4>
-						<ul>
-							<li><a href="#">Relógio</a></li>
-							<li><a href="#">Saco</a></li>
-							<li><a href="#">Calçado</a></li>
-							<li><a href="#">Endereço</a></li>
-						</ul>
-					</div>
-					<!--end footer col-->
-					<!-- footer col-->
-					<div class="footer-col">
-						<h4>Se subescreva!</h4>
-						<div class="form-sub">
-							<form>
-								<input type="email" placeholder="Digite o seu e-mail" required>
-								<button>subscrever</button>
-							</form>
-						</div>
-
 						<div class="medias-socias">
 							<a href="#"> <i class="devicon-java-plain"></i>
 							</a> <a href="#"> <i class="devicon-spring-plain"></i>
@@ -130,6 +157,8 @@
 
 					</div>
 					<!--end footer col-->
+					<div class="copyright">Copyright © 2022 Siarc | IFRN-JC |
+						Todos os Direitos Reservados.</div>
 				</div>
 			</div>
 		</footer>

@@ -30,17 +30,17 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Aparelho a1 = new Aparelho("Joao");
-		a1.setEnderecoip("1212");
-		a1.setEnderecomac("1212");
+		Aparelho a1 = new Aparelho("Aparelho 01");
+		a1.setEnderecoip("121tttt2");
+		a1.setEnderecomac("12912");
 		a1.setLocal("Coaes");
 		a1.setStatus(Status.INATIVO.getNome());
 		a1.setCodigoirligar("On");
 		a1.setCodigoirdesligar("Off");
 
-		Aparelho a2 = new Aparelho("Maria");
-		a2.setEnderecoip("212");
-		a2.setEnderecomac("212");
+		Aparelho a2 = new Aparelho("Aparelho 02");
+		a2.setEnderecoip("212yyyy");
+		a2.setEnderecomac("2129");
 		a2.setLocal("Coaes");
 		a2.setStatus(Status.INATIVO.getNome());
 		a2.setCodigoirligar("On");
@@ -48,7 +48,7 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 
 		Aparelho a3 = new Aparelho("Willian");
 		a3.setEnderecoip("122");
-		a3.setEnderecomac("122");
+		a3.setEnderecomac("12ttt2");
 		a3.setLocal("Coaes");
 		a3.setStatus(Status.ATIVO.getNome());
 		a3.setCodigoirligar("On");
@@ -58,7 +58,7 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 		aparelhoRepo.save(a2);
 		aparelhoRepo.save(a3);
 
-		Usuario u1 = new Usuario("willian", "will@gmail.com", "2019106", passwordEncoder.encode("12345678"));
+		Usuario u1 = new Usuario("alberi", "alberi@gmail.com", "2019106", passwordEncoder.encode("12345678"));
 		u1.setRole(Role.ADMIN.getNome());
 
 		Usuario u2 = new Usuario("user", "user@gmail.com", "2018106", passwordEncoder.encode("12345678"));

@@ -49,7 +49,7 @@ public class Usuario {
 		this.password = password;
 		this.role = Role.USER.getNome();
 	}
-
+ 
 	public long getId() {
 		return id;
 	}
