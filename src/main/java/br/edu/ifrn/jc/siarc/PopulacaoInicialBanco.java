@@ -46,7 +46,7 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 		a2.setCodigoirligar("On");
 		a2.setCodigoirdesligar("Off");
 
-		Aparelho a3 = new Aparelho("Willian");
+		Aparelho a3 = new Aparelho("Aparelho 03");
 		a3.setEnderecoip("122");
 		a3.setEnderecomac("12ttt2");
 		a3.setLocal("Coaes");

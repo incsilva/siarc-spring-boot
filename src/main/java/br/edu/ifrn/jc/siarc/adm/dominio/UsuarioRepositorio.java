@@ -12,4 +12,6 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
 
 	Usuario findByMatricula(String matricula);
 
+	Usuario getUserByMatricula(String matricula);
+
 }

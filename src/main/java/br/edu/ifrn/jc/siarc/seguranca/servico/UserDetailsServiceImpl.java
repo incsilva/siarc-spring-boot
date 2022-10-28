@@ -21,18 +21,20 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UsuarioRepositorio usuarioRepo;
-	
-	
+
 	@Override
 	@Transactional
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario usuario = usuarioRepo.findByUsername(username);
-		
-		Set<GrantedAuthority> authorities = new HashSet<>();
-		authorities.add(new SimpleGrantedAuthority(usuario.getRole()));
-		
-		User userSpring = new User(usuario.getUsername(), usuario.getPassword(), authorities);
-		
-		return userSpring;
+	public UserDetails loadUserByUsername(String matricula) throws UsernameNotFoundException {
+		Usuario usuario = usuarioRepo.getUserByMatricula(matricula);
+
+		if (usuario != null) {
+			Set<GrantedAuthority> authorities = new HashSet<>();
+			authorities.add(new SimpleGrantedAuthority(usuario.getRole()));
+
+			User userSpring = new User(usuario.getUsername(), usuario.getPassword(), authorities);
+
+			return userSpring;
+		}
+		throw new UsernameNotFoundException("Não encontramos nenhum usuário com a matrícula: " + matricula);
 	}
 }
