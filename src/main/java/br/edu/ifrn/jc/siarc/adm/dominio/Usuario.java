@@ -21,11 +21,11 @@ public class Usuario {
 	@NotBlank
 	@Column(nullable = false, unique = true)
 	private String username;
-	
+
 	@Email(message = "Informe um endereço de e-mail válido.")
 	@Column(nullable = false, unique = true)
 	private String email;
-	
+
 	@Column(nullable = false, unique = true)
 	private String matricula;
 
@@ -34,12 +34,14 @@ public class Usuario {
 	@Size(min = 8, message = "A senha deve conter pelo menos 8 dígitos.")
 	private String password;
 
+	private String resetPasswordToken;
+
 	@NotBlank
 	@Column(nullable = false)
 	private String role;
 
 	@Deprecated
-	protected Usuario() { 
+	protected Usuario() {
 	}
 
 	public Usuario(String username, String email, String matricula, String password) {
@@ -49,7 +51,7 @@ public class Usuario {
 		this.password = password;
 		this.role = Role.USER.getNome();
 	}
- 
+
 	public long getId() {
 		return id;
 	}
@@ -88,6 +90,14 @@ public class Usuario {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getResetPasswordToken() {
+		return resetPasswordToken;
+	}
+
+	public void setResetPasswordToken(String resetPasswordToken) {
+		this.resetPasswordToken = resetPasswordToken;
 	}
 
 	public String getRole() {

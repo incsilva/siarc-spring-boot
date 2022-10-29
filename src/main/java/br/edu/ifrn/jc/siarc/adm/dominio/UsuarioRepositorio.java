@@ -14,4 +14,5 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
 
 	Usuario getUserByMatricula(String matricula);
 
+	Usuario findByResetPasswordToken(String token);
 }

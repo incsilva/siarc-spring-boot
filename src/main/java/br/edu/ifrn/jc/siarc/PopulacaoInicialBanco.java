@@ -58,7 +58,7 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 		aparelhoRepo.save(a2);
 		aparelhoRepo.save(a3);
 
-		Usuario u1 = new Usuario("alberi", "alberi@gmail.com", "2019106", passwordEncoder.encode("12345678"));
+		Usuario u1 = new Usuario("alberi", "silva.inacio@escolar.ifrn.edu.br", "2019106", passwordEncoder.encode("12345678"));
 		u1.setRole(Role.ADMIN.getNome());
 
 		Usuario u2 = new Usuario("user", "user@gmail.com", "2018106", passwordEncoder.encode("12345678"));

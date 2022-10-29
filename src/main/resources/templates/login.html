@@ -16,14 +16,19 @@
 		<div th:if="${param.error}">
 			<div class="alert alert-danger">Usuário ou senha inválidos.</div>
 		</div>
+		<div th:if="${param.logout}">
+			<p class="text-warning">Você foi desconectado(a).</p>
+		</div>
 		<input name="username" type="text" class="form-control"
-			placeholder="Usuário" autofocus="autofocus" required="true" /> 
+			placeholder="Usuário" autofocus="autofocus" required/> 
 		<input
 			name="password" type="password" class="form-control"
-			placeholder="Senha" required="true" />
+			placeholder="Senha" required/>
 		<input type="hidden"
 			name="${_csrf.parameterName}" value="${_csrf.token}" />
-
+			
+			<a th:href="@{/forgotPassword}">Esqueceu ou deseja alterar sua senha?</a>
+			
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 	</form>
 </body>

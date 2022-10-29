@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,4 +38,31 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 		throw new UsernameNotFoundException("Não encontramos nenhum usuário com a matrícula: " + matricula);
 	}
+
+	public void updateResetPasswordToken(String token, String email) throws UsuarioNotFoundException {
+		Usuario usuario = usuarioRepo.findByEmail(email);
+
+		if (usuario != null) {
+			usuario.setResetPasswordToken(token);
+			usuarioRepo.save(usuario);
+		} else {
+			throw new UsuarioNotFoundException(
+					"Nenhum usuário com o email " + email + " foi encontrado. Verifique se está correto.");
+		}
+	}
+
+	public Usuario getByResetPasswordToken(String token) {
+		return usuarioRepo.findByResetPasswordToken(token);
+	}
+
+	public void updatePassword(Usuario usuario, String newPassword) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String encodedPassword = passwordEncoder.encode(newPassword);
+
+		usuario.setPassword(encodedPassword);
+		usuario.setResetPasswordToken(null);
+
+		usuarioRepo.save(usuario);
+	}
+
 }
