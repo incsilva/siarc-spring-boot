@@ -7,19 +7,11 @@
 
 <!--  Styles -->
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" th:href="@{/css/geral.css}" />
 <link rel="stylesheet" th:href="@{/css/style.css}" />
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 <link th:href="@{/css/magnific-popup.css}" rel="stylesheet">
 <link th:href="@{/css/first.css}" rel="stylesheet">
@@ -32,7 +24,7 @@
 </head>
 <body>
 
-<!-- Start header ########################################################################################## -->
+	<!-- Start header ########################################################################################## -->
 	<div th:fragment="header" id="header">
 		<section class="preloader">
 			<div class="spinner">
@@ -67,34 +59,32 @@
 
 						<li class="nav-item"><a class="nav-link click-scroll"
 							href="#section_5">Agendamento</a></li>
-							<li class="nav-item"><a class="nav-link click-scroll"
-							th:href="@{/sys/aparelhos/busca}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+						<li class="nav-item"><a class="nav-link click-scroll"
+							th:href="@{/sys/aparelhos/busca}"><svg
+									xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path
+										d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
 </svg></a></li>
 					</ul>
+					<div sec:authorize="isAuthenticated()" class="d-lg-flex ms-auto">
+						<ul class="navbar-nav navbar-right ms-lg-6">
+							<li class="nav-item"><form name="logoutForm"
+									th:action="@{/logout}" method="post">
 
-					<div sec:authorize="isAuthenticated()"
-						class="d-lg-flex align-items-center d-none ms-auto">
-						<ul class="nav navbar-nav navbar-right">
-							<li class="nav-item">
-								<form name="logoutForm" th:action="@{/logout}" method="post">
-									
 									<button class="custom-btn btn">Sair</button>
-								</form>
-							</li>
+								</form></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</nav>
 		<div id="backHeader">
-			<br>
-			<br>
-			<br>
+			<br> <br> <br>
 			<hr>
 		</div>
 	</div>
-<!-- End header #################################################################################################### -->
+	<!-- End header #################################################################################################### -->
 	<!-- Rodape -->
 	<div th:fragment="footer">
 		<footer>
@@ -102,18 +92,16 @@
 				<div class="row-footer">
 					<!-- footer col-->
 					<div class="footer-col">
-						<h7>SIARC</h7>
+						<h4>SIARC</h4>
 					</div>
 					<div class="footer-col">
-						<h7>Sobre o sistema</h7>
+						<h4>Sobre o sistema</h4>
 						<ul>
 							<li>Sistema de Automação de Ar Condicionados</li>
 							<li id="description">Software desenvolvido por alunos do 4º
 								ano da turma de Informática 2019.1 do IFRN Campus João Câmara</li>
 						</ul>
 					</div>
-					<!--end footer col-->
-					<!-- footer col-->
 					<!--end footer col-->
 					<!-- footer col-->
 					<div class="footer-col">

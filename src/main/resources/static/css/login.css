@@ -47,3 +47,15 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.login {
+  
+  border-radius: 10px;
+  padding: 10px 20px 20px 20px;
+  width: 90%;
+  max-width: 420px;
+  background: #ffffff;
+  position: relative;
+  padding-bottom: 40px;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+}
