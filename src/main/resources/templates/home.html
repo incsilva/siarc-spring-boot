@@ -5,20 +5,24 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Início - SIARC: Sistema de Automação de Ar Condicionados</title>
+<link rel="stylesheet" th:href="@{/css/home.css}">
 <!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
         </th:block> /*/-->
 </head>
 <body style="background-color: #f2f2f2">
 	<header th:insert="fragments/geral.html :: header"> </header>
 	<div class="container my-2">
-		<h2>
-			Seja Bem vindo<label>, <span sec:authentication="name">Usuário</span></label>!
-		</h2>
+		<h3 class="salutation">
+			Seja Bem vindo(a)<label>, <span sec:authentication="name">Usuário</span></label>!
+		</h3>
+		<br>
+
+		<!-- 
 		<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 			<div class="col">
 				<div class="card mb-4 shadow-sm">
 					<div class="card-header">
-						<h4 class="my-0 fw-normal">Ar Condicionados</h4>
+						<h4 class="my-0 fw-normal">APARELHOS</h4>
 					</div>
 					<div class="card-body">
 						<ul class="list-unstyled mt-3 mb-4">
@@ -30,79 +34,52 @@
 					</div>
 				</div>
 			</div>
-			<div sec:authorize="hasAuthority('ADMIN')">
+			 -->
+		<div class="container text-center">
+			<div>
 				<div class="col">
 					<div class="card mb-4 shadow-sm">
-						<div class="card-header">
-							<h4 class="my-0 fw-normal">Gerenciar APARELHOS</h4>
+						<div class="card-header" style="background-color: #fff">
+							<img style="width: 200px;" th:src="@{/img/ar-condicionado.png}"
+								alt="Aparelhos"> <br>
+							<h4 class="my-0 fw-normal">APARELHOS</h4>
 						</div>
 						<div class="card-body">
 							<ul class="list-unstyled mt-3 mb-4">
-								<li>Adicionar novos aparelhos</li>
-								<li>Alterar aparelhos</li>
-								<li>Remover aparelhos</li>
+								<li sec:authorize="hasAuthority('ADMIN')">Gerenciar
+									Aparelhos</li>
+								<li>Ligar/Desligar Aparelhos</li>
 							</ul>
-							<a class="w-100 btn btn-lg btn-primary"
+							<a class="w-100 btn btn-lg btn-success"
 								th:href="@{/sys/aparelhos}">Acessar</a>
 						</div>
 					</div>
 				</div>
 			</div>
+
 			<div sec:authorize="hasAuthority('ADMIN')">
-				<div class="col">
+				<div class="col col-auto">
 					<div class="card mb-4 shadow-sm">
-						<div class="card-header">
-							<h4 class="my-0 fw-normal">Gerenciar usuários</h4>
+						<div class="card-header" style="background-color: #fff">
+							<img style="width: 200px;" th:src="@{/img/people.svg}"
+								alt="Aparelhos"> <br>
+							<h4 class="my-0 fw-normal">USUÁRIOS</h4>
 						</div>
 						<div class="card-body">
 							<ul class="list-unstyled mt-3 mb-4">
-								<li>Adicionar novos usuários</li>
-								<li>Modificar permissões de usuários</li>
+								<li>Gerenciar Usuários</li>
+								<li>Verificar Usuários</li>
 							</ul>
-							<a class="w-100 btn btn-lg btn-primary"
+							<a class="w-100 btn btn-lg btn-success"
 								th:href="@{/adm/usuarios}">Acessar</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<section class="featured section-padding"
-				style="width: 100%; border-radius: 10px; background-color: #14B789">
-				<div class="container">
-					<div class="profile-thumb">
-						<div class="profile-title">
-							<h4 class="mb-0">Information</h4>
-						</div>
-
-						<div class="profile-body">
-							<p>
-								<span class="profile-small-title">Naghme</span> <span>Joshua
-									Morgan</span>
-							</p>
-
-							<p>
-								<span class="profile-small-title">Birthday</span> <span>Aug
-									12, 1986</span>
-							</p>
-							<p>
-								<span class="profile-small-title">Birthday</span> <span>Aug
-									12, 1986</span>
-							</p>
-
-							<p>
-								<span class="profile-small-title">Phone</span> <span><a
-									href="tel: 305-240-9671">120-240-9600</a></span>
-							</p>
-
-							<p>
-								<span class="profile-small-title">Email</span> <span><a
-									href="mailto:hello@josh.design">hello@josh.design</a></span>
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
 		</div>
 	</div>
+	<br>
+	<br>
 	<footer th:insert="fragments/geral.html :: footer"> </footer>
 </body>
 </html>

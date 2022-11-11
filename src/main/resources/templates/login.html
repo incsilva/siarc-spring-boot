@@ -27,9 +27,8 @@
 				placeholder="Usuário" autofocus="autofocus" required /> <br> <input
 				name="password" type="password" class="form-control"
 				placeholder="Senha" required /> <input type="hidden"
-				name="${_csrf.parameterName}" value="${_csrf.token}" /> <a
-				th:href="@{/forgotPassword}" class="btn btn-link">Esqueceu a
-				senha?</a>
+				name="${_csrf.parameterName}" value="${_csrf.token}" /> 
+				<a th:href="@{/forgotPassword}" class="btn btn-link">Esqueceu a senha?</a>
 			<hr>
 			<div class="d-grid gap-2">
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
