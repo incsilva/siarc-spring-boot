@@ -4,50 +4,58 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link th:href="@{/css/buttonOnOff.css}" rel="stylesheet" />
 <title>Ar Condicionados - SIARC: Sistema de Automação de Ar
 	Condicionados</title>
-
 <!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
         </th:block> /*/-->
 
+<!--  Styles -->
+<link rel="stylesheet" th:href="@{/css/geral.css}">
 </head>
 <body>
 	<header th:insert="fragments/geral.html :: header"> </header>
 	<div class="container mt-5">
-<h2 align="center">Pesquisar por Aparelhos</h2>
-  <form th:action="@{/sys/aparelhos/buscar}" method="get">
-  
- <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-  <button class="btn btn-outline-secondary" type="submit" id="button-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-</svg></button>
-</div>
-  
-  <div class="row justify-content-center">
-  <input type="text" name="nome" th:value="${nome}"  placeholder="Procure por nome ou local do aparelho" class="col-6">
-  
-  <button type="submit" class="btn btn-info" >Search</button>
-  <button type="submit" class="btn btn-info" >Reset</button>
-  </div>
-  </form>
-  <table class="table table-bordered table-sm mt-2">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Local</th>
+		<h3 align="center" class="titlePage">Pesquisar por Aparelhos</h3>
+		<br> <br>
+		<form th:action="@{/sys/aparelhos/buscar}" method="get">
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="aparelho : ${encontrados}">
-        <td th:text="${aparelho.nome}"></td>
-        <td th:text="${aparelho.local}"></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-			<footer th:insert="fragments/geral.html :: footer"> </footer>
+			<div class="input-group mb-3 justify-content-center">
+				<input type="text" class="form-control" name="nome"
+					th:value="${nome}" placeholder="Procure por nome ou local"
+					aria-label="Example text with button addon"
+					aria-describedby="button-addon1">
+				<button class="btn btn-success" type="submit" id="button-addon1">
+					<i class="bi bi-search"></i>
+				</button>
+			</div>
+
+
+		</form>
+		<br> <br>
+		<table class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nome</th>
+					<th>Local</th>
+					<th>Status</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aparelho : ${encontrados}">
+					<td th:text="${aparelhoStat.index+1}"></td>
+					<td th:text="${aparelho.nome}"></td>
+					<td th:text="${aparelho.local}"></td>
+					<td th:text="${aparelho.status}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:insert="fragments/geral.html :: footer"> </footer>
 </body>
 </html>
