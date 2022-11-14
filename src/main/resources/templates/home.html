@@ -42,10 +42,10 @@
 			<div>
 				<div class="col">
 					<div class="card mb-4 shadow-sm">
-						<div class="card-header" style="background-color: #fff">
-							<img style="width: 200px;" th:src="@{/img/ar-condicionado.png}"
-								alt="Aparelhos"> <br>
-							<h4 class="my-0 fw-normal">APARELHOS</h4>
+						<div class="card-header" id="background-card">
+							<img th:src="@{/img/ar-condicionado.png}" alt="Aparelhos">
+							<br>
+							<h4>APARELHOS</h4>
 						</div>
 						<div class="card-body">
 							<ul class="list-unstyled mt-3 mb-4">
@@ -63,10 +63,9 @@
 			<div sec:authorize="hasAuthority('ADMIN')">
 				<div class="col col-auto">
 					<div class="card mb-4 shadow-sm">
-						<div class="card-header" style="background-color: #fff">
-							<img style="width: 200px;" th:src="@{/img/people.svg}"
-								alt="Aparelhos"> <br>
-							<h4 class="my-0 fw-normal">USUÁRIOS</h4>
+						<div class="card-header" id="background-card">
+							<img th:src="@{/img/people.svg}" alt="Aparelhos"> <br>
+							<h4>USUÁRIOS</h4>
 						</div>
 						<div class="card-body">
 							<ul class="list-unstyled mt-3 mb-4">
