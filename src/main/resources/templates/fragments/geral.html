@@ -19,6 +19,9 @@
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
 <link rel="stylesheet" th:href="@{/css/first.css}">
+<link href='https://css.gg/search.css' rel='stylesheet'>
+<link href='https://css.gg/home-alt.css' rel='stylesheet'>
+<link href='https://css.gg/key.css' rel='stylesheet'>
 <!-- Scripts -->
 <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
@@ -56,18 +59,17 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<div sec:authorize="isAuthenticated()" class="d-lg-flex ms-auto">
 						<ul class="navbar-nav navbar-right ms-lg-6">
-							<li class=""><a class="nav-link click-scroll"
-								th:href="@{/home}"><i class="bi bi-house-fill"></i></a></li>
-
+							<li><a class="nav-link click-scroll" th:href="@{/home}"><i
+									class="gg-home-alt"></i></a></li>
 							<li><a class="nav-link click-scroll"
-								th:href="@{/sys/aparelhos/busca}"><i class="bi bi-search"></i></a></li>
-							<li><a class="nav-link click-scroll" href="#"><i
-									class="bi bi-key-fill"></i></a></li>
+								th:href="@{/sys/aparelhos/busca}"><i class="gg-search"></i></a></li>
+							<li><a class="nav-link click-scroll"
+								th:href="@{/forgotPassword}"><i class="gg-key"></i></a></li>
 							<li class="nav-item"><form name="logoutForm"
 									th:action="@{/logout}" method="post">
-
 									<button class="custom-btn btn">Sair</button>
-								</form></li>
+								</form>
+							</li>
 						</ul>
 					</div>
 				</div>

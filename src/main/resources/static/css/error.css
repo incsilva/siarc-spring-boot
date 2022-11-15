@@ -1,0 +1,29 @@
+	#button {
+	font-size: 100%
+	}
+
+/* Responsivo */
+@media ( min-width : 1650px) {
+	img {
+		width: 80%;
+	}
+}
+
+@media ( max-width : 1650px) {
+	img {
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width : 1650px) and (min-height:
+	1020px) {
+	img {
+		width: 100%;
+	}
+}
+
+@media (max-width : 780px) {
+	img {
+	width: 100%;
+	}
+}
