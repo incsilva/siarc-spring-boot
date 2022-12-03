@@ -21,11 +21,16 @@
 		<h2>Novo Usuário</h2>
 		<form action="#" th:action="@{/adm/usuarios/salvar}"
 			th:object="${usuario}" method="POST">
-			<input type="hidden" id="id" th:field="*{id}"> <span
+			<input type="hidden" id="id" th:field="*{id}"> 
+			
+			<span
 				th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
-				class="text-danger"></span> <input type="text"
+				class="text-danger"></span> 
+				<input type="text"
 				th:field="*{username}" placeholder="Nome"
-				class="form-control mb-4 col-4" required> <span
+				class="form-control mb-4 col-4" required> 
+				
+				<span
 				th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
 				class="text-danger"></span> <input type="text" th:field="*{email}"
 				placeholder="Email" class="form-control mb-4 col-4" required>
@@ -33,16 +38,22 @@
 			<span th:if="${#fields.hasErrors('matricula')}"
 				th:errors="*{matricula}" class="text-danger"></span> <input
 				type="text" th:field="*{matricula}" placeholder="Matrícula IFRN"
-				class="form-control mb-4 col-4" required> <span
-				id="password-status" class="text-danger"></span> <input
+				class="form-control mb-4 col-4" required> 
+				
+			<span
+				id="password-status" class="text-danger"></span> 
+				<input
 				type="password" name="password" onchange='conferePassword();'
 				th:field="*{password}" placeholder="Senha" id="password"
 				minlength="8" maxlength="20" onKeyUp="verificaForcaSenha();"
-				class="form-control mb-4 col-4" required /> <input type="password"
+				class="form-control mb-4 col-4" required /> 
+				<input type="password"
 				name="confirmPassword" minlength="8" maxlength="20"
 				class="form-control mb-4 col-4" placeholder="Confirme a senha"
 				required oninput="checkPasswordMatch(this);"
-				onchange="conferePassword();" /> <select
+				onchange="conferePassword();" /> 
+				
+			<select
 				class="form-control mb-4 col-4" th:field="*{role}">
 				<option th:each="r : ${roles}" th:value="${r}" th:text="${r}"></option>
 			</select>

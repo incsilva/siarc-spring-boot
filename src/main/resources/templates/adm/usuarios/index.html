@@ -15,12 +15,13 @@
 	<div class="container my-2">
 		<a th:href="@{/adm/usuarios/novo}" class="btn btn-primary btn-sm mb-3">Incluir Usuário</a>
 		<h1>Usuários</h1>
-		<table border="1" class="table table-striped table-responsive-md">
+		<div class="table-responsive">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>Nome</th>
-					<th>Email</th>
-					<th>Matricula</th>
+					<th>E-mail</th>
+					<th>Matrícula</th>
 					<th>Status</th>
 					<th>Ações</th>
 				</tr>
@@ -44,6 +45,7 @@
 				</tr>
 			</tbody>
 		</table>
+		</div>
 	</div>
 	<footer th:insert="fragments/geral.html :: footer"> </footer>
 </body>
