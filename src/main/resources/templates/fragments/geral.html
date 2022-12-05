@@ -63,13 +63,17 @@
 									class="gg-home-alt"></i></a></li>
 							<li><a class="nav-link click-scroll"
 								th:href="@{/sys/aparelhos/busca}"><i class="gg-search"></i></a></li>
-							<li><a class="nav-link click-scroll"
-								th:href="@{/forgotPassword}"><i class="gg-key"></i></a></li>
+							<li class="nav dropdown"><a class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown" href="#" role="button"
+								aria-expanded="false"><i class="gg-key"></i></a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" th:href="@{/forgotPassword}">Alterar
+											senha</a></li>
+								</ul></li>
 							<li class="nav-item"><form name="logoutForm"
 									th:action="@{/logout}" method="post">
 									<button class="custom-btn btn">Sair</button>
-								</form>
-							</li>
+								</form></li>
 						</ul>
 					</div>
 				</div>
@@ -91,14 +95,14 @@
 						<h4>SIARC | ifrn-jc</h4>
 						<ul>
 							<li>Sistema de Automação de Ar Condicionados</li>
-							<li><img th:src="@{/img/logo-ifrn-jc.png}"></li>
+							<li><img style="width: 200px" th:src="@{/img/logo-ifrn-jc.png}"></li>
 						</ul>
 					</div>
 					<div class="footer-col">
 						<h4>Sobre o sistema</h4>
 						<ul>
-							<li>Software desenvolvido por alunos do 4º
-								ano da turma de Informática 2019.1 do IFRN Campus João Câmara</li>
+							<li>Software desenvolvido por alunos do 4º ano da turma de
+								Informática 2019.1 do IFRN Campus João Câmara</li>
 						</ul>
 					</div>
 					<!--end footer col-->
@@ -106,27 +110,35 @@
 					<div class="footer-col">
 						<h4>Links úteis</h4>
 						<ul class="links">
-							<li><a href="https://suap.ifrn.edu.br"><i class="bi bi-link-45deg"></i> Portal SUAP</a></li>
-							<li><a href="https://portal.ifrn.edu.br"><i class="bi bi-link-45deg"></i> Portal IFRN</a></li>
+							<li><a href="https://suap.ifrn.edu.br"><i
+									class="bi bi-link-45deg"></i> Portal SUAP</a></li>
+							<li><a href="https://portal.ifrn.edu.br"><i
+									class="bi bi-link-45deg"></i> Portal IFRN</a></li>
 							<li><a
-								href="https://suap.ifrn.edu.br/centralservicos/selecionar_servico_abertura/manutencao-predial/?tab=refrigeracao"><i class="bi bi-link-45deg"></i> Contate que um aparelho está com mau funcionamento</a></li>
+								href="https://suap.ifrn.edu.br/centralservicos/selecionar_servico_abertura/manutencao-predial/?tab=refrigeracao"><i
+									class="bi bi-link-45deg"></i> Contate que um aparelho está com
+									mau funcionamento</a></li>
 						</ul>
 					</div>
 					<!--end footer col-->
 					<!-- footer col-->
 					<div class="footer-col">
-					<h4>Informações técnicas</h4>
-					<ul><li>Desenvolvido com:</li></ul>
+						<h4>Informações técnicas</h4>
+						<ul>
+							<li>Desenvolvido com:</li>
+						</ul>
 						<div class="medias-socias">
-							<a href="https://spring.io/"> 
-         					   <i class="devicon-spring-plain-wordmark colored"></i>
+							<a href="https://spring.io/"> <i
+								class="devicon-spring-plain-wordmark colored"></i>
 							</a>
 						</div>
 
 					</div>
 					<!--end footer col-->
-					<div class="copyright">Copyright © 2022 <b>Siarc</b> | <b>IFRN-JC</b> |
-						Todos os Direitos Reservados.</div>
+					<div class="copyright">
+						Copyright © 2022 <b>Siarc</b> | <b>IFRN-JC</b> | Todos os Direitos
+						Reservados.
+					</div>
 				</div>
 			</div>
 		</footer>

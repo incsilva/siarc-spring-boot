@@ -1,0 +1,22 @@
+img {
+	 width: 40%;
+}
+
+@media ( max-width : 900px) {
+	button {
+		width: 100%;
+	}
+}
+
+@media ( max-width : 780px) {
+	h3 {
+	text-align: center;
+	}
+}
+
+
+@media ( max-width : 500px) {
+	img {
+	width: 60%;
+	}
+}

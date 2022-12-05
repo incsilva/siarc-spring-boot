@@ -1,5 +1,5 @@
 #backHeader {
-	background-color: #007C5A;
+	background-color: #198754;
 	width: 100%;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .titlePage {
-	color: #005e44;
+	color: #198754;
 }
 
 footer {
@@ -102,12 +102,6 @@ footer {
 }
 
 /* Responsivo */
-@media ( max-width : 1000px) {
-	img {
-		width: 180px
-	}
-}
-
 @media ( max-width : 800px) {
 	.footer-col {
 		width: 50%;
@@ -118,9 +112,6 @@ footer {
 		margin-top: 20px;
 		align-items: center;
 		text-align: center;
-	}
-	img {
-		width: 250px
 	}
 }
 
