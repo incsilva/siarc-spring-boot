@@ -2,14 +2,14 @@ package br.edu.ifrn.jc.siarc.adm.controle;
 
 import java.io.UnsupportedEncodingException;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
+//import javax.mail.MessagingException;
+//import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
+//import org.springframework.mail.javamail.JavaMailSender;
+//import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,15 +26,15 @@ public class ForgotPasswordControle {
 	@Autowired
 	private UserDetailsServiceImpl usuarioService;
 
-	@Autowired
-	private JavaMailSender mailSender;
+//	@Autowired
+//	private JavaMailSender mailSender;
 
 	@GetMapping("/forgotPassword")
 	public String showForgotPasswordForm(Model model) {
 		model.addAttribute("pageTitle", "Esqueceu Senha");
 		return "forgotPasswordForm";
 	}
-
+/* 
 	@PostMapping("/forgotPassword")
 	public String processForgotPasswordForm(HttpServletRequest request, Model model) {
 		String email = request.getParameter("email");
@@ -77,7 +77,7 @@ public class ForgotPasswordControle {
 
 		mailSender.send(message);
 	}
-
+*/
 	@GetMapping("/resetPassword")
 	public String showResetPasswordForm(@Param(value = "token") String token, Model model) {
 		Usuario usuario = usuarioService.getByResetPasswordToken(token);

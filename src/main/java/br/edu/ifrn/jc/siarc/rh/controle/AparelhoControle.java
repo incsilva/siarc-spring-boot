@@ -110,4 +110,14 @@ public class AparelhoControle {
         aparelhoRepo.delete(aparelhoOpt.get());
         return "redirect:/sys/aparelhos";
     }
+
+    @GetMapping("/sys/aparelhos/info/{id}")
+    public String detalharAparelho(@PathVariable("id") long id, Model model) {
+        Optional<Aparelho> aparelhoOpt = aparelhoRepo.findById(id);
+        if (aparelhoOpt.isEmpty()) {
+            throw new IllegalArgumentException("Aparelho inválido.");
+        }
+        model.addAttribute("aparelho", aparelhoOpt.get());
+        return "sys/aparelhos/info";
+    }
 }

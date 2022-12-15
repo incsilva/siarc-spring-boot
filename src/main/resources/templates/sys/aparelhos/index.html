@@ -29,6 +29,7 @@
 						<th>Local</th>
 						<th>Status</th>
 						<th>Ações</th>
+						<th sec:authorize="hasAuthority('ADMIN')">ADM</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,12 +39,15 @@
 						<td th:text="${aparelho.local}"></td>
 						<td th:text="${aparelho.status}"></td>
 						<td>
-							<!--<a th:href="@{/sys/aparelhos/{id}(id=${aparelho.id})}"
+							<a th:href="@{/sys/aparelhos/info/{id} (id=${aparelho.id})}" class="btn btn-info"><i class="bi bi-info-circle"></i></a>
+							<a href="#" class="btn btn-warning"><i class="bi bi-power"></i></a>
+							<a href="#" class="btn btn-success"><i class="bi bi-calendar2-plus"></i></a>
+						</td>
+						<td sec:authorize="hasAuthority('ADMIN')">
+							<a th:href="@{/sys/aparelhos/{id}(id=${aparelho.id})}"
 							class="btn btn-primary"><i class="bi bi-pencil-square"></i></a> <a
 							th:href="@{/sys/aparelhos/excluir/{id}(id=${aparelho.id})}"
-							class="btn btn-danger"><i class="bi bi-trash3"></i></a>--> <a
-							href="#" class="btn btn-warning"><i class="bi bi-power"></i></a>
-							<a href="#" class="btn btn-success"><i class="bi bi-calendar2-plus"></i></a>
+							class="btn btn-danger"><i class="bi bi-trash3"></i></a>
 						</td>
 					</tr>
 				</tbody>

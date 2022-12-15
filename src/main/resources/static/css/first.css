@@ -250,11 +250,12 @@ strong {
 
 .navbar .custom-btn {
   background: transparent;
-  border-width: 2px;
+  border-width: 0px;
+  border-radius: 30%;;
   border-style: solid;
   border-color: var(--white-color);
   color: var(--white-color);
-  padding: 8px 22px;
+  padding: 4px 15px;
 }
 
 .navbar .custom-btn:hover {

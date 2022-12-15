@@ -18,7 +18,6 @@
 		<h3 align="center" class="titlePage">Pesquisar por Aparelhos</h3>
 		<br> <br>
 		<form th:action="@{/sys/aparelhos/buscar}" method="get">
-
 			<div class="input-group mb-3 justify-content-center">
 				<input type="text" class="form-control" name="nome"
 					th:value="${nome}" placeholder="Procure por nome ou local"
@@ -40,6 +39,7 @@
 						<th>Nome</th>
 						<th>Local</th>
 						<th>Status</th>
+						<th>Info</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -48,6 +48,7 @@
 						<td th:text="${aparelho.nome}"></td>
 						<td th:text="${aparelho.local}"></td>
 						<td th:text="${aparelho.status}"></td>
+						<td><a th:href="@{/sys/aparelhos/info/{id} (id=${aparelho.id})}"class="btn btn-info"><i class="bi bi-info-circle"></i></a></td>
 					</tr>
 				</tbody>
 			</table>
