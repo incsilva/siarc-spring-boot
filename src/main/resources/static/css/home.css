@@ -1,5 +1,5 @@
 .color-body {
-	background-color: #f2f2f2;
+	background-color: #f8f8f8;
 }
 
 #background-card {
@@ -10,21 +10,40 @@ img {
 	width: 200px;
 }
 
+#capa {
+	width: 60%;
+}
+
 /* Responsivo */
+@media ( max-width : 1000px) {
+	#capa {
+		width: 70%;
+	}
+	#cards {
+		width: 100%;
+	}
+}
+
 @media ( max-width : 800px) {
-	img {
+	#img-card {
 		width: 170px;
+	}
+	#capa {
+		width: 80%;
 	}
 }
 
 @media ( max-width : 600px) {
-	img {
+	#img-card {
 		width: 130px;
+	}
+	#capa {
+		width: 90%;
 	}
 }
 
 @media ( max-width : 400px) {
-	img {
+	#img-card {
 		width: 100px;
 	}
 }

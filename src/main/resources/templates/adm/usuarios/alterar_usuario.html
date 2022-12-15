@@ -18,8 +18,7 @@
 	<header th:insert="fragments/geral.html :: header"> </header>
 
 	<div class="container my-2">
-		<h3 class="titlePage">Novo Usuário</h3>
-		<br><br>
+		<h2>Novo Usuário</h2>
 		<form action="#" th:action="@{/adm/usuarios/salvar}"
 			th:object="${usuario}" method="POST">
 			<input type="hidden" id="id" th:field="*{id}"> 
@@ -40,30 +39,11 @@
 				th:errors="*{matricula}" class="text-danger"></span> <input
 				type="text" th:field="*{matricula}" placeholder="Matrícula IFRN"
 				class="form-control mb-4 col-4" required> 
-				
-			<span
-				id="password-status" class="text-danger"></span> 
-				<input
-				type="password" name="password" onchange='conferePassword();'
-				th:field="*{password}" placeholder="Senha" id="password"
-				minlength="8" maxlength="20" onKeyUp="verificaForcaSenha();"
-				class="form-control mb-4 col-4" required /> 
-				<input type="password"
-				name="confirmPassword" minlength="8" maxlength="20"
-				class="form-control mb-4 col-4" placeholder="Confirme a senha"
-				required oninput="checkPasswordMatch(this);"
-				onchange="conferePassword();" /> 
-				
-			<select
-				class="form-control mb-4 col-4" th:field="*{role}">
-				<option th:each="r : ${roles}" th:value="${r}" th:text="${r}"></option>
-			</select>
-			<div class="d-grid gap-2 col-6 mx-auto">
-			<button type="submit" class="btn btn-success">Salvar</button>
-			</div>
+
+			<button type="submit" class="btn btn-info col-2" id="btnSalvar">Salvar</button>
 		</form>
 		<hr>
-		<a th:href="@{/adm/usuarios}"><i class="bi bi-arrow-left-circle"> </i> Retornar para a lista de usuários</a>
+		<a th:href="@{/adm/usuarios}">Retornar para a lista de usuários</a>
 	</div>
 
 	<footer th:insert="fragments/geral.html :: footer"> </footer>

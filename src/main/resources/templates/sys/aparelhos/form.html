@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <link th:href="@{/css/style.css}" rel="stylesheet" />
-<title>Editar Aparelhos - SIARC: Sistema de Automação de Ar Condicionados</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<title>Editar Aparelhos - SIARC: Sistema de Automação de Ar
+	Condicionados</title>
 
 <!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
         </th:block> /*/-->
@@ -13,29 +15,37 @@
 	<header th:insert="fragments/geral.html :: header"> </header>
 
 	<div class="container my-2">
-		<h2>Editar Aparelho</h2>
-		<form action="#" th:action="@{/sys/aparelhos/salvar}" th:object="${aparelho}" method="POST">
-			<input type="hidden" id="id" th:field="*{id}">
-			
-			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
-			<input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4" required>
-			
-      		<span th:if="${#fields.hasErrors('enderecoip')}" th:errors="*{enderecoip}" class="text-danger"></span>
-      		<input type="text" th:field="*{enderecoip}" placeholder="Endereço IP" class="form-control mb-4 col-4" required>
-			
-			<span th:if="${#fields.hasErrors('enderecomac')}" th:errors="*{enderecomac}" class="text-danger"></span>
-			<input type="text" th:field="*{enderecomac}" placeholder="Endereço Mac" class="form-control mb-4 col-4" required>
-      		
-      		<input type="text" th:field="*{local}" placeholder="Local" class="form-control mb-4 col-4" required>
-      		
-      		<input type="text" th:field="*{codigoirligar}" placeholder="Código IR Ligar" class="form-control mb-4 col-4" required>
-      		
-      		<input type="text" th:field="*{codigoirdesligar}" placeholder="Código IR Desligar" class="form-control mb-4 col-4" required>
-				
-			<button type="submit" class="btn btn-info col-2" id="btnSalvar">Salvar</button>
+		<h3 class="titlePage">Editar Aparelho</h3>
+		<br>
+		<br>
+		<form action="#" th:action="@{/sys/aparelhos/salvar}"
+			th:object="${aparelho}" method="POST">
+			<input type="hidden" id="id" th:field="*{id}"> <span
+				th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+				class="text-danger"></span> <input type="text" th:field="*{nome}"
+				placeholder="Nome" class="form-control mb-4 col-4" required>
+
+			<span th:if="${#fields.hasErrors('enderecoip')}"
+				th:errors="*{enderecoip}" class="text-danger"></span> <input
+				type="text" th:field="*{enderecoip}" placeholder="Endereço IP"
+				class="form-control mb-4 col-4" required> <span
+				th:if="${#fields.hasErrors('enderecomac')}"
+				th:errors="*{enderecomac}" class="text-danger"></span> <input
+				type="text" th:field="*{enderecomac}" placeholder="Endereço Mac"
+				class="form-control mb-4 col-4" required> <input type="text"
+				th:field="*{local}" placeholder="Local"
+				class="form-control mb-4 col-4" required> <input type="text"
+				th:field="*{codigoirligar}" placeholder="Código IR Ligar"
+				class="form-control mb-4 col-4" required> <input type="text"
+				th:field="*{codigoirdesligar}" placeholder="Código IR Desligar"
+				class="form-control mb-4 col-4" required>
+			<div class="d-grid gap-2 col-6 mx-auto">
+				<button type="submit" class="btn btn-success">Salvar</button>
+			</div>
 		</form>
 		<hr>
-		<a th:href="@{/sys/aparelhos}">Retornar para a lista de Ar Condicionados</a>
+		<a th:href="@{/sys/aparelhos}"><i class="bi bi-arrow-left-circle"></i>
+			Retornar para a lista de Ar Condicionados</a>
 	</div>
 	<footer th:insert="fragments/geral.html :: footer"> </footer>
 </body>

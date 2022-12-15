@@ -8,13 +8,6 @@ img {
 	}
 }
 
-@media ( max-width : 780px) {
-	h3 {
-	text-align: center;
-	}
-}
-
-
 @media ( max-width : 500px) {
 	img {
 	width: 60%;

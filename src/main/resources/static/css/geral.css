@@ -9,6 +9,7 @@
 
 .titlePage {
 	color: #198754;
+	text-align: center;
 }
 
 footer {
@@ -111,6 +112,9 @@ footer {
 	.footer-col .medias-socias {
 		margin-top: 20px;
 		align-items: center;
+		text-align: center;
+	}
+	.titlePage {
 		text-align: center;
 	}
 }

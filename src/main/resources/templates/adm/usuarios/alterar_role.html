@@ -9,7 +9,7 @@
 
 <!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
         </th:block> /*/-->
-        
+
 <!-- Styles -->
 <link rel="stylesheet" th:href="@{/css/alterar_role.css}">
 </head>
@@ -26,28 +26,36 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="container my-2">
 		<form action="#" th:action="@{/adm/usuarios/alterar/role}"
 			th:object="${roleUsuarioForm}" method="POST">
 			<input type="hidden" id="id" th:field="*{id}">
-			<div class="container text-center">
+			<div class="container">
 				<div class="row">
-					<input type="text" disabled="disabled" th:field="*{username}"
-						class="form-control mb-4 col-4"> <input type="text"
-						disabled="disabled" th:field="*{email}"
+					<label for="formControlInput1" class="form-label">Usuário</label> <input
+						type="text" disabled="disabled" th:field="*{username}"
+						class="form-control mb-4 col-4"> <label
+						for="formControlInput1" class="form-label">E-mail</label> <input
+						type="text" disabled="disabled" th:field="*{email}"
+						class="form-control mb-4 col-4"> <label
+						for="formControlInput1" class="form-label">Matricula</label> <input
+						type="text" disabled="disabled" th:field="*{matricula}"
 						class="form-control mb-4 col-4">
 				</div>
 			</div>
-			 <label for="formControlInput1" class="form-label">Escolha a Função de Usuário</label>
-			<select id="formControlInput1" class="form-control mb-4 col-4" th:field="*{role}">
+			<label for="formControlInput1" class="form-label">Escolha a
+				Função de Usuário</label> <select id="formControlInput1"
+				class="form-control mb-4 col-4" th:field="*{role}">
 				<option th:each="r : ${roles}" th:value="${r}" th:text="${r}"></option>
 			</select>
-
-			<button type="submit" class="btn btn-success">Alterar</button>
+			<div class="d-grid gap-2 col-6 mx-auto">
+				<button type="submit" class="btn btn-success">Alterar</button>
+			</div>
 		</form>
 		<hr>
-		<a th:href="@{/adm/usuarios}"><i class="bi bi-arrow-left-circle"></i> Retornar para a lista de usuários</a>
+		<a th:href="@{/adm/usuarios}"><i class="bi bi-arrow-left-circle"></i>
+			Retornar para a lista de usuários</a>
 	</div>
 	<footer th:insert="fragments/geral.html :: footer"> </footer>
 </body>

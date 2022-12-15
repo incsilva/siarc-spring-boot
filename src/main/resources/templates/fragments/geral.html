@@ -59,17 +59,26 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<div sec:authorize="isAuthenticated()" class="d-lg-flex ms-auto">
 						<ul class="navbar-nav navbar-right ms-lg-6">
+						<!-- Botao home -->
 							<li><a class="nav-link click-scroll" th:href="@{/home}"><i
 									class="gg-home-alt"></i></a></li>
-							<li><a class="nav-link click-scroll"
-								th:href="@{/sys/aparelhos/busca}"><i class="gg-search"></i></a></li>
-							<li class="nav dropdown"><a class="nav-link dropdown-toggle"
+									<!-- Botao pesquisar -->
+							<li class="nav dropleft"><a class="nav-link"
+								data-bs-toggle="dropdown" href="#" role="button"
+								aria-expanded="false"><i class="gg-search"></i></a>
+								<ul class="dropdown-menu menu-left">
+									<li><a class="dropdown-item" th:href="@{/sys/aparelhos/busca}">Pesquisar por Aparelhos</a></li>
+									<li><a class="dropdown-item" href="#">Pesquisar por Usuários</a></li>
+								</ul></li>
+									<!-- Botao senha -->
+								<li class="nav dropdown"><a class="nav-link"
 								data-bs-toggle="dropdown" href="#" role="button"
 								aria-expanded="false"><i class="gg-key"></i></a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" th:href="@{/forgotPassword}">Alterar
 											senha</a></li>
 								</ul></li>
+								<!-- Botao sair -->
 							<li class="nav-item"><form name="logoutForm"
 									th:action="@{/logout}" method="post">
 									<button class="custom-btn btn">Sair</button>
