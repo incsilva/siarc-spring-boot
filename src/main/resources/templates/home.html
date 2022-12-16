@@ -32,24 +32,6 @@
 		<h3 class="titlePage">Seja Bem vindo(a)!</h3>
 		<br>
 		<br>
-		<!-- 
-		<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-			<div class="col">
-				<div class="card mb-4 shadow-sm">
-					<div class="card-header">
-						<h4 class="my-0 fw-normal">APARELHOS</h4>
-					</div>
-					<div class="card-body">
-						<ul class="list-unstyled mt-3 mb-4">
-							<li>Ligar</li>
-							<li>Desligar</li>
-						</ul>
-						<a class="w-100 btn btn-lg btn-primary"
-							th:href="@{/sys/aparelhos/ativos}">Acessar</a>
-					</div>
-				</div>
-			</div>
-			 -->
 		<div class="container text-center row">
 			<div class="col-sm-6" id="cards">
 				<div class="card mb-4 shadow-sm">
@@ -69,31 +51,17 @@
 					</div>
 				</div>
 			</div>
-			<div sec:authorize="hasAuthority('ADMIN')" class="col-sm-6" id="cards">
+			<div class="col-sm-6" id="cards">
 				<div class="card mb-4 shadow-sm">
 					<div class="card-header" id="background-card">
 						<img id="img-card" th:src="@{/img/people.svg}" alt="Aparelhos">
 						<br>
-						<h4>USUÁRIOS</h4>
+						<h4 sec:authorize="hasAuthority('ADMIN')">USUÁRIOS</h4>
+						<h4 sec:authorize="hasAuthority('User')">EQUIPE</h4>
 					</div>
 					<div class="card-body">
 						<ul class="list-unstyled mt-3 mb-4">
-							<li>Gerenciar Usuários</li>
-							<li>Verificar Usuários</li>
-						</ul>
-						<a class="w-100 btn btn-lg btn-success" th:href="@{/adm/usuarios}">Acessar</a>
-					</div>
-				</div>
-			</div>
-			<div sec:authorize="hasAuthority('User')" class="col-sm-6" id="cards">
-				<div class="card mb-4 shadow-sm">
-					<div class="card-header" id="background-card">
-						<img id="img-card" th:src="@{/img/people.svg}" alt="Aparelhos">
-						<br>
-						<h4>EQUIPE</h4>
-					</div>
-					<div class="card-body">
-						<ul class="list-unstyled mt-3 mb-4">
+							<li sec:authorize="hasAuthority('ADMIN')">Gerenciar Usuários</li>
 							<li>Verificar Usuários</li>
 						</ul>
 						<a class="w-100 btn btn-lg btn-success" th:href="@{/adm/usuarios}">Acessar</a>
