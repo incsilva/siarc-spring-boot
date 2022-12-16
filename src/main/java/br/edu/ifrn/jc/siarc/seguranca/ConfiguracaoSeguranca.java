@@ -26,7 +26,7 @@ public class ConfiguracaoSeguranca extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()
 			.antMatchers("/css/**", "/js/**", "/resources/**", "/error").permitAll()
 			.antMatchers("/adm/**").hasAuthority(Role.ADMIN.getNome())
-			.anyRequest().authenticated()
+			.antMatchers("/", "/home").authenticated()
 			.and()
 		.formLogin()
 			.loginPage("/login")

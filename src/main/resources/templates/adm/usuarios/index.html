@@ -16,7 +16,7 @@
 <body>
 	<header th:insert="fragments/geral.html :: header"> </header>
 	<div class="container my-2">
-		<h3 class="titlePage">Lista de usuários</h3>
+		<h3 class="titlePage">Lista de Usuários</h3>
 		<br>
 		<div class="d-grid gap-2 d-md-flex justify-content-md-start">
 		<a th:href="@{/adm/usuarios/novo}" class="btn btn-success">Adicionar novo <i class="bi bi-person-add"></i></a>
@@ -28,7 +28,6 @@
 				<tr>
 					<th>Nome</th>
 					<th>E-mail</th>
-					<th>Matrícula</th>
 					<th>Função</th>
 					<th>Ações</th>
 				</tr>
@@ -37,13 +36,12 @@
 				<tr th:each="usuario : ${listaUsuarios}">
 					<td th:text="${usuario.username}"></td>
 					<td th:text="${usuario.email}"></td>
-					<td th:text="${usuario.matricula}"></td>
 					<td th:text="${usuario.role}"></td>
 					<td>
 						<a th:href="@{/adm/usuarios/alterar/role/{id}(id=${usuario.id})}" class="btn btn-warning"><i class="bi bi-person-fill-gear"></i></a>
 						<!-- <a th:href="@{/adm/usuarios/{id}(id=${usuario.id})}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a> -->
 						<a th:href="@{/adm/usuarios/excluir/{id}(id=${usuario.id})}" class="btn btn-danger"><i class="bi bi-trash3"></i></a>			
-						<a href="#"><i class="bi bi-info-circle"></i></a>
+						<a th:href="@{/adm/usuarios/info/{id} (id=${usuario.id})}" class="btn btn-info"><i class="bi bi-info-circle"></i></a>
 					</td>
 				</tr>
 			</tbody>

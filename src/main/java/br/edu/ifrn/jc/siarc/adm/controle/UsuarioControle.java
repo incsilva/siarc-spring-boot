@@ -141,4 +141,17 @@ public class UsuarioControle {
 
         return "redirect:/adm/usuarios";
     }
+
+    @GetMapping("/adm/usuarios/info/{id}")
+    public String detalharUsuario(@PathVariable("id") long id, Model model) {
+        Optional<Usuario> usuOpt = usuarioRepo.findById(id);
+
+        if (usuOpt.isEmpty()) {
+            throw new IllegalArgumentException("Usuário inválido.");
+        }
+
+        model.addAttribute("usuario", usuOpt.get());
+
+        return "adm/usuarios/info";
+    }
 }

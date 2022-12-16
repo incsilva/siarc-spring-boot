@@ -1,4 +1,4 @@
-package br.edu.ifrn.jc.siarc;
+ package br.edu.ifrn.jc.siarc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

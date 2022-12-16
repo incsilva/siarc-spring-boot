@@ -11,13 +11,13 @@
         </th:block> /*/-->
 
 </head>
-<body style="background-color: #F8F8F8">
+<body>
 	<header th:insert="fragments/geral.html :: header"> </header>
 
 	<div class="container my-2">
 		<h3 align="center" class="titlePage">Ar Condicionados</h3>
 		<br> <a sec:authorize="hasAuthority('ADMIN')"
-			th:href="@{/sys/aparelhos/novo}" class="btn btn-outline-success">
+			th:href="@{/sys/aparelhos/novo}" class="btn btn-success">
 			<i class="bi bi-plus-circle"> </i> Adicionar novo
 		</a> <br> <br>
 		<div class="table-responsive">
