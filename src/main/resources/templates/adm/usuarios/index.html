@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Usuários - SIARC: Sistema de Automação de Ar Condicionados</title>
+<title>Usuários - SIARC: Sistema de Automação de Ar
+	Condicionados</title>
 
 <!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
         </th:block> /*/-->
-        
-        <!--  Styles -->
+
+<!--  Styles -->
 <link rel="stylesheet" th:href="@{/css/geral.css}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
 </head>
 <body>
@@ -18,37 +21,43 @@
 	<div class="container my-2">
 		<h3 class="titlePage">Lista de Usuários</h3>
 		<br>
-		<div sec:authorize="hasAuthority('ADMIN')" class="d-grid gap-2 d-md-flex justify-content-md-start">
-		<a th:href="@{/adm/usuarios/novo}" class="btn btn-success">Adicionar novo <i class="bi bi-person-add"></i></a>
+		<div sec:authorize="hasAuthority('ADMIN')"
+			class="d-grid gap-2 d-md-flex justify-content-md-start">
+			<a th:href="@{/adm/usuarios/novo}" class="btn btn-success">Adicionar
+				novo <i class="bi bi-person-add"></i>
+			</a>
 		</div>
 		<br>
 		<div class="table-responsive">
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>E-mail</th>
-					<th>Função</th>
-					<th sec:authorize="hasAuthority('ADMIN')">Ações</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="usuario : ${listaUsuarios}">
-					<td th:text="${usuario.username}"></td>
-					<td th:text="${usuario.email}"></td>
-					<td th:text="${usuario.role}"></td>
-					<td sec:authorize="hasAuthority('ADMIN')">
-						<a th:href="@{/adm/usuarios/alterar/role/{id}(id=${usuario.id})}" class="btn btn-warning"><i class="bi bi-person-fill-gear"></i></a>
-						<a th:href="@{/adm/usuarios/excluir/{id}(id=${usuario.id})}" class="btn btn-danger"><i class="bi bi-trash3"></i></a>			
-						<a th:href="@{/adm/usuarios/info/{id} (id=${usuario.id})}" class="btn btn-info"><i class="bi bi-info-circle"></i></a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>E-mail</th>
+						<th>Função</th>
+						<th sec:authorize="hasAuthority('ADMIN')">Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="usuario : ${listaUsuarios}">
+						<td th:text="${usuario.username}"></td>
+						<td th:text="${usuario.email}"></td>
+						<td th:text="${usuario.role}"></td>
+						<td sec:authorize="hasAuthority('ADMIN')"><a
+							th:href="@{/adm/usuarios/alterar/role/{id}(id=${usuario.id})}"
+							class="btn btn-warning"><i class="bi bi-person-fill-gear"></i></a>
+							<a th:href="@{/adm/usuarios/excluir/{id}(id=${usuario.id})}"
+							class="btn btn-danger"><i class="bi bi-trash3"></i></a> <a
+							th:href="@{/adm/usuarios/info/{id} (id=${usuario.id})}"
+							class="btn btn-info"><i class="bi bi-info-circle"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<br>
 		<hr>
-		<a th:href="@{/}"><i class="bi bi-arrow-left-circle"></i> Retornar à Página Inicial</a>
+		<a th:href="@{/}"><i class="bi bi-arrow-left-circle"></i> Retornar
+			à Página Inicial</a>
 	</div>
 	<footer th:insert="fragments/geral.html :: footer"> </footer>
 </body>

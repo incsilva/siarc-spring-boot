@@ -10,12 +10,14 @@ import javax.validation.Valid;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.edu.ifrn.jc.siarc.adm.dominio.Role;
 import br.edu.ifrn.jc.siarc.adm.dominio.Usuario;
@@ -140,6 +142,21 @@ public class UsuarioControle {
         usuarioRepo.save(usuarioAlterado);
 
         return "redirect:/adm/usuarios";
+    }
+
+    @GetMapping("/adm/usuarios/busca")
+    public String busca(ModelMap model) {
+        List<Usuario> users = (List<Usuario>) usuarioRepo.findAll();
+        model.addAttribute("users", users);
+        return "adm/usuarios/busca";
+    }
+
+    @GetMapping("/adm/usuarios/buscar")
+    public String buscar(@RequestParam("nome") String nome, ModelMap model) {
+
+        List<Usuario> users = (List<Usuario>) usuarioRepo.findAllByNome(nome);
+        model.addAttribute("users", users);
+        return "adm/usuarios/busca";
     }
 
     @GetMapping("/adm/usuarios/info/{id}")

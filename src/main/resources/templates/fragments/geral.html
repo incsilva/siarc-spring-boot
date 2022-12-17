@@ -21,7 +21,6 @@
 <link rel="stylesheet" th:href="@{/css/first.css}">
 <link rel='stylesheet' href='https://css.gg/search.css'>
 <link rel='stylesheet' href='https://css.gg/home-alt.css'>
-<link rel='stylesheet' href='https://css.gg/key.css'>
 <!-- Scripts -->
 <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
@@ -59,30 +58,36 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<div sec:authorize="isAuthenticated()" class="d-lg-flex ms-auto">
 						<ul class="navbar-nav navbar-right ms-lg-6">
-						<!-- Botao home -->
+							<!-- Botao home -->
 							<li><a class="nav-link click-scroll" th:href="@{/home}">Início</a></li>
-									<!-- Botao pesquisar -->
+							<!-- Botao pesquisar -->
 							<li class="nav dropdown"><a class="nav-link"
 								data-bs-toggle="dropdown" href="#" role="button"
 								aria-expanded="false">Buscar</a>
 								<ul class="dropdown-menu menu-left">
-									<li><a class="dropdown-item" th:href="@{/sys/aparelhos/busca}">Aparelhos</a></li>
-									<li sec:authorize="hasAuthority('ADMIN')"><hr class="dropdown-divider"></li>
-									<li sec:authorize="hasAuthority('ADMIN')"><a class="dropdown-item" href="#">Usuários</a></li>
-								</ul>
-							</li>
-									<!-- Botao senha -->
-								<li class="nav dropdown"><a class="nav-link"
+									<!-- Pesquisar por aparelhos -->
+									<li><a class="dropdown-item"
+										th:href="@{/sys/aparelhos/busca}">Aparelhos</a></li>
+									<li sec:authorize="hasAuthority('ADMIN')"><hr
+											class="dropdown-divider"></li>
+									<!-- Pesquisar por usuarios -->
+									<li sec:authorize="hasAuthority('ADMIN')"><a
+										class="dropdown-item" th:href="@{/adm/usuarios/busca}">Usuários</a></li>
+								</ul></li>
+							<!-- Botao senha -->
+							<li class="nav dropdown"><a class="nav-link"
 								data-bs-toggle="dropdown" href="#" role="button"
 								aria-expanded="false">Login</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" th:href="@{/forgotPassword}">Alterar
 											senha</a></li>
 								</ul></li>
-								<!-- Botao sair -->
+							<!-- Botao sair -->
 							<li class="nav-item"><form name="logoutForm"
 									th:action="@{/logout}" method="post">
-									<button class="custom-btn btn"><i class="bi bi-box-arrow-right"></i></button>
+									<button class="custom-btn btn">
+										<i class="bi bi-box-arrow-right"></i>
+									</button>
 								</form></li>
 						</ul>
 					</div>
@@ -105,7 +110,8 @@
 						<h4>SIARC | ifrn-jc</h4>
 						<ul>
 							<li>Sistema de Automação de Ar Condicionados</li>
-							<li><img style="width: 200px" th:src="@{/img/logo-ifrn-jc.png}"></li>
+							<li><img style="width: 200px"
+								th:src="@{/img/logo-ifrn-jc.png}"></li>
 						</ul>
 					</div>
 					<div class="footer-col">

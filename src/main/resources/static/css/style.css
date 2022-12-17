@@ -5,11 +5,3 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
-#btnSalvar {
-	background-color: #007bff;
-}
-
-#btnSalvar:hover {
-	background-color: #415aca;
-}

@@ -4,67 +4,67 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Informações de Aparelho - SIARC: Sistema de Automação de Ar
-	Condicionados</title>
+<title>Informações de Aparelho - SIARC: Sistema de Automação de
+	Ar Condicionados</title>
 
 <!--/*/ <th:block th:include="fragments/geral.html :: headerfiles">
         </th:block> /*/-->
 
 </head>
 <body>
-    <header th:insert="fragments/geral.html :: header"> </header>
+	<header th:insert="fragments/geral.html :: header"> </header>
 
 	<div class="container my-2">
 		<h3 align="center" class="titlePage">Informações Técnicas</h3>
-        <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col-2">#</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Nome:</th>
-                <td colspan="2" th:text="${aparelho.nome}"></td>
-              </tr>
-              <tr>
-                <th scope="row">Endereço IP:</th>
-                <td th:text="${aparelho.enderecoip}"></td>
-              </tr>
-              <tr>
-                <th scope="row">Endereço MAC:</th>
-                <td th:text="${aparelho.enderecomac}"></td>
-              </tr>
-              <tr>
-                <th scope="row">Local:</th>
-                <td th:text="${aparelho.local}"></td>
-              </tr>
-              <tr>
-                <th scope="row">Status:</th>
-                <td th:text="${aparelho.status}"></td>
-              </tr>
-              <tr>
-                <th scope="row">Código IR Ligar:</th>
-                <td th:text="${aparelho.codigoirligar}"></td>
-              </tr>
-              <tr>
-                <th scope="row">Código IR Desligar:</th>
-                <td th:text="${aparelho.codigoirdesligar}"></td>
-              </tr>
-              <tr>
-                <th scope="row">Registrado em: </th>
-                <td>dd / MM / yyyy</td>
-              </tr>
-            </tbody>
-          </table>
-          <br>
-          <hr>
-		<a th:href="@{/sys/aparelhos}"><i class="bi bi-arrow-left-circle"></i>
-			Retornar para a lista de Ar Condicionados</a>
-            </div>
-        </div>
-    <br>
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col-2">#</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">Nome:</th>
+						<td colspan="2" th:text="${aparelho.nome}"></td>
+					</tr>
+					<tr>
+						<th scope="row">Endereço IP:</th>
+						<td th:text="${aparelho.enderecoip}"></td>
+					</tr>
+					<tr>
+						<th scope="row">Endereço MAC:</th>
+						<td th:text="${aparelho.enderecomac}"></td>
+					</tr>
+					<tr>
+						<th scope="row">Local:</th>
+						<td th:text="${aparelho.local}"></td>
+					</tr>
+					<tr>
+						<th scope="row">Status:</th>
+						<td th:text="${aparelho.status}"></td>
+					</tr>
+					<tr>
+						<th scope="row">Código IR Ligar:</th>
+						<td th:text="${aparelho.codigoirligar}"></td>
+					</tr>
+					<tr>
+						<th scope="row">Código IR Desligar:</th>
+						<td th:text="${aparelho.codigoirdesligar}"></td>
+					</tr>
+					<tr>
+						<th scope="row">Registrado em:</th>
+						<td>dd / MM / yyyy</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<hr>
+			<a th:href="@{/sys/aparelhos}"><i class="bi bi-arrow-left-circle"></i>
+				Retornar para a lista de Ar Condicionados</a>
+		</div>
+	</div>
+	<br>
 	<br>
 	<footer th:insert="fragments/geral.html :: footer"> </footer>
 </body>

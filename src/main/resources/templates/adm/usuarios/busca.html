@@ -15,20 +15,18 @@
 <body>
 	<header th:insert="fragments/geral.html :: header"> </header>
 	<div class="container mt-5">
-		<h3 align="center" class="titlePage">Pesquisar por Aparelhos</h3>
+		<h3 align="center" class="titlePage">Pesquisar por Usuários</h3>
 		<br> <br>
-		<form th:action="@{/sys/aparelhos/buscar}" method="get">
+		<form th:action="@{/adm/usuarios/buscar}" method="get">
 			<div class="input-group mb-3 justify-content-center">
 				<input type="text" class="form-control" name="nome"
-					th:value="${nome}" placeholder="Procure por nome ou local"
+					th:value="${nome}" placeholder="Pesquisar"
 					aria-label="Example text with button addon"
 					aria-describedby="button-addon1">
 				<button class="btn btn-success" type="submit" id="button-addon1">
 					<i class="bi bi-search"></i>
 				</button>
 			</div>
-
-
 		</form>
 		<br> <br>
 		<div class="table-responsive">
@@ -37,20 +35,18 @@
 					<tr>
 						<th>#</th>
 						<th>Nome</th>
-						<th>Local</th>
-						<th>Status</th>
+						<th>E-mail</th>
+						<th>Função</th>
 						<th>Info</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="aparelho : ${encontrados}">
-						<td th:text="${aparelhoStat.index+1}"></td>
-						<td th:text="${aparelho.nome}"></td>
-						<td th:text="${aparelho.local}"></td>
-						<td th:text="${aparelho.status}"></td>
-						<td><a
-							th:href="@{/sys/aparelhos/info/{id} (id=${aparelho.id})}"
-							class="btn btn-info"><i class="bi bi-info-circle"></i></a></td>
+					<tr th:each="usuario : ${users}">
+						<td th:text="${usuarioStat.index+1}"></td>
+						<td th:text="${usuario.username}"></td>
+						<td th:text="${usuario.email}"></td>
+						<td th:text="${usuario.role}"></td>
+						<td><a th:href="@{/adm/usuarios/info/{id} (id=${usuario.id})}"class="btn btn-info"><i class="bi bi-info-circle"></i></a></td>
 					</tr>
 				</tbody>
 			</table>

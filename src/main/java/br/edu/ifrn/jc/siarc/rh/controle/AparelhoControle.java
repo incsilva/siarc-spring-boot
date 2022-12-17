@@ -53,7 +53,9 @@ public class AparelhoControle {
     }
     
     @GetMapping("/sys/aparelhos/busca")
-    public String busca() {
+    public String busca(ModelMap model) {
+        List<Aparelho> encontrados = (List<Aparelho>) aparelhoRepo.findAll();
+        model.addAttribute("encontrados", encontrados);
         return "sys/aparelhos/busca";
     }
     
