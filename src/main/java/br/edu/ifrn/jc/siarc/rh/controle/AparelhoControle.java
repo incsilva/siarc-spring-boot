@@ -1,5 +1,9 @@
 package br.edu.ifrn.jc.siarc.rh.controle;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,8 +48,16 @@ public class AparelhoControle {
         return "sys/aparelhos/ativo";
     }
 
+    @GetMapping("/sys/aparelhos/inativos")
+    public String aparelhosDesligados(Model model) {
+        List<Aparelho> desligados = (List<Aparelho>) aparelhoRepo.findAllInativos();
+        model.addAttribute("desligados", desligados);
+        return "sys/aparelhos/inativo";
+    }
+
     @GetMapping("/sys/aparelhos/novo")
     public String novoAparelho(Model model) {
+
 
         model.addAttribute("aparelho", new Aparelho(""));
         model.addAttribute("status", statuses);

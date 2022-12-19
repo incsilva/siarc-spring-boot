@@ -52,7 +52,7 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav navbar-right ms-lg-6">
 						<li class="nav-item"><a th:href="@{/home}" id="titulo">:
-								Sistema de Automação de Ar Condicionados</a></li>
+								sistema de automação de ar condicionados</a></li>
 					</ul>
 				</div>
 				<div class="collapse navbar-collapse" id="navbarNav">
@@ -63,7 +63,7 @@
 							<!-- Botao pesquisar -->
 							<li class="nav dropdown"><a class="nav-link"
 								data-bs-toggle="dropdown" href="#" role="button"
-								aria-expanded="false">Buscar</a>
+								aria-expanded="false">Busca</a>
 								<ul class="dropdown-menu menu-left">
 									<!-- Pesquisar por aparelhos -->
 									<li><a class="dropdown-item"
@@ -74,10 +74,12 @@
 									<li sec:authorize="hasAuthority('ADMIN')"><a
 										class="dropdown-item" th:href="@{/adm/usuarios/busca}">Usuários</a></li>
 								</ul></li>
+							<!-- Botao links -->
+							<li><a class="nav-link click-scroll" href="#section_link">Links</a></li>
 							<!-- Botao senha -->
 							<li class="nav dropdown"><a class="nav-link"
 								data-bs-toggle="dropdown" href="#" role="button"
-								aria-expanded="false">Login</a>
+								aria-expanded="false">Ajuste</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" th:href="@{/forgotPassword}">Alterar
 											senha</a></li>
@@ -123,6 +125,7 @@
 					</div>
 					<!--end footer col-->
 					<!-- footer col-->
+					<section id="section_link"></section>
 					<div class="footer-col">
 						<h4>Links úteis</h4>
 						<ul class="links">

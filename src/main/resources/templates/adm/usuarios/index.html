@@ -23,9 +23,11 @@
 		<br>
 		<div sec:authorize="hasAuthority('ADMIN')"
 			class="d-grid gap-2 d-md-flex justify-content-md-start">
-			<a th:href="@{/adm/usuarios/novo}" class="btn btn-success">Adicionar
+			<a th:href="@{/adm/usuarios/novo}" class="btn btn-success btn-sm">Adicionar
 				novo <i class="bi bi-person-add"></i>
 			</a>
+			<a class="btn btn-sm btn-outline-success" href="#">Administradores</a>
+			<a class="btn btn-sm btn-outline-success" href="#">Usuários</a>
 		</div>
 		<br>
 		<div class="table-responsive">

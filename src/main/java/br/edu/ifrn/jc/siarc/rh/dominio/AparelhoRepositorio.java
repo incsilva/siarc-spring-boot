@@ -21,4 +21,7 @@ public interface AparelhoRepositorio extends JpaRepository<Aparelho, Long> {
     @Query("SELECT a FROM Aparelho a WHERE a.local like %?1% OR a.nome like %?1%")
     List<Aparelho> findAllByNome(String nome);
 
+    @Query("SELECT a FROM Aparelho a WHERE a.status = 'INATIVO'")
+    List<Aparelho> findAllInativos();
+
 } 

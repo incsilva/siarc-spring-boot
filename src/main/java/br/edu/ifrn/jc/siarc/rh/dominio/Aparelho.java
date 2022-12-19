@@ -1,5 +1,7 @@
 package br.edu.ifrn.jc.siarc.rh.dominio;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -38,6 +40,9 @@ public class Aparelho {
 
     private String codigoirligar;
     private String codigoirdesligar;
+
+    Calendar c = Calendar.getInstance();
+    Date dataRegistro = c.getTime();
 
     @Deprecated
     protected Aparelho() {
